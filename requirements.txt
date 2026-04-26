@@ -1,0 +1,10 @@
+pymupdf
+rank_bm25
+google-generativeai
+transformers
+torch
+tokenizers
+pdfplumber
+scikit-learn
+pandas
+ipykernel

@@ -1,0 +1,12 @@
+data/
+__pycache__/
+*.ipynb_checkpoints
+.env
+tokenizer_comparison.csv
+evaluation_results.csv
+evaluation_results.md
+repo/
+PariShiksha/
+node_modules/
+dist/
+.DS_Store
