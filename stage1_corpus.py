@@ -12,38 +12,33 @@ def extract_text_from_pdf(pdf_path):
 
 def split_content(text):
     # Heuristic splitting based on common patterns in NCERT
-    # Worked examples often start with "Example 8.1" etc.
-    # Questions are often at the end or in boxes.
-    
     sections = {
         "concepts": [],
         "examples": [],
         "exercises": []
     }
     
-    lines = text.split('\n')
-    current_section = "concepts"
+    # Common headers in NCERT
+    example_markers = ["Example", "Example:", "EXAMPLE"]
+    exercise_markers = ["Questions", "Exercises", "EXERCISES", "Terminal Exercises"]
     
-    buffer = []
-    for line in lines:
-        line = line.strip()
-        if not line: continue
+    current_section = "concepts"
+    paragraphs = text.split('\n\n') # Often paragraphs are separated by double newlines
+    
+    for p in paragraphs:
+        p = p.strip()
+        if not p: continue
         
-        if "Example" in line and any(char.isdigit() for char in line):
-            if buffer:
-                sections[current_section].append(" ".join(buffer))
-                buffer = []
+        # Check for section changes
+        is_example = any(marker in p for marker in example_markers) and any(char.isdigit() for char in p[:20])
+        is_exercise = any(marker in p for marker in exercise_markers)
+        
+        if is_example:
             current_section = "examples"
-        elif "Questions" in line or "Exercises" in line:
-            if buffer:
-                sections[current_section].append(" ".join(buffer))
-                buffer = []
+        elif is_exercise:
             current_section = "exercises"
-        
-        buffer.append(line)
-        
-    if buffer:
-        sections[current_section].append(" ".join(buffer))
+            
+        sections[current_section].append(p)
         
     return sections
 
