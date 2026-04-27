@@ -90,8 +90,17 @@ jupyter notebook PariShiksha_Assistant.ipynb
 
 > *"The gap between good chunking and bad chunking is larger than the gap between LLMs."* — Senior Engineer Hint
 
+## 🛤️ Roadmap
+- [ ] **Multi-Chapter Support**: Expanding retrieval across the entire Class 9 Science syllabus.
+- [ ] **Formula Rendering**: Improved OCR for complex scientific equations and chemical formulas.
+- [ ] **Teacher-in-the-loop**: A dashboard for tutors to review and correct low-confidence answers.
+- [ ] **Hinglish Support**: Optimizing tokenizers for the natural code-switching used in Tier-2/3 cities.
+
+## ⚠️ Disclaimer
+PariShiksha is an educational prototype. While it is designed with strict grounding rules, students should always cross-verify critical information with their official NCERT textbooks.
+
 ---
 
 <div align="center">
-Made with ❤️ for the PG Diploma in AI-ML & Agentic AI Engineering
+Made with ❤️ for the PG Diploma in AI-ML & Agentic AI Engineering • 2026
 </div>
