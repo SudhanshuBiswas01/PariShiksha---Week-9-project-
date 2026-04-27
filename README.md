@@ -102,5 +102,5 @@ PariShiksha is an educational prototype. While it is designed with strict ground
 ---
 
 <div align="center">
-Made with ❤️ for the PG Diploma in AI-ML & Agentic AI Engineering • 2026
+Made with ❤️ for the PGD in AI-ML & Agentic AI Engineering • 2026
 </div>
