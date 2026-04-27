@@ -5,7 +5,6 @@ from stage3_generation import StudyAssistant
 from stage1_corpus import extract_text_from_pdf, split_content
 
 def run_evaluation(api_key):
-    # Setup
     pdf_path = "data/motion.pdf"
     text = extract_text_from_pdf(pdf_path)
     sections = split_content(text)
@@ -21,7 +20,6 @@ def run_evaluation(api_key):
     
     assistant = StudyAssistant(api_key)
     
-    # Evaluation Set
     eval_set = [
         {"question": "What is distance?", "type": "direct"},
         {"question": "What is displacement?", "type": "direct"},

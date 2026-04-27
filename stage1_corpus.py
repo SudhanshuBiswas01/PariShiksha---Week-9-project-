@@ -1,4 +1,4 @@
-import fitz  # PyMuPDF
+import fitz
 from transformers import AutoTokenizer
 import pandas as pd
 import os
@@ -11,27 +11,24 @@ def extract_text_from_pdf(pdf_path):
     return full_text
 
 def split_content(text):
-    # Heuristic splitting based on common patterns in NCERT
     sections = {
         "concepts": [],
         "examples": [],
         "exercises": []
     }
     
-    # Common headers in NCERT
     example_markers = ["Example", "Example:", "EXAMPLE"]
     exercise_markers = ["Questions", "Exercises", "EXERCISES", "Terminal Exercises"]
     
     current_section = "concepts"
-    paragraphs = text.split('\n\n') # Often paragraphs are separated by double newlines
+    paragraphs = text.split('\n\n')
     
     for p in paragraphs:
         p = p.strip()
         if not p: continue
         
-        # Check for section changes
-        is_example = any(marker in p for marker in example_markers) and any(char.isdigit() for char in p[:20])
-        is_exercise = any(marker in p for marker in exercise_markers)
+        is_example = any(m in p for m in example_markers) and any(c.isdigit() for c in p[:20])
+        is_exercise = any(m in p for m in exercise_markers)
         
         if is_example:
             current_section = "examples"

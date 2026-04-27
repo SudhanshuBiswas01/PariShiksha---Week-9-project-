@@ -30,7 +30,3 @@ ANSWER:
 """
         response = self.model.generate_content(prompt, generation_config={"temperature": 0})
         return response.text
-
-if __name__ == "__main__":
-    # Test generation if API key is present
-    pass

@@ -4,7 +4,6 @@ import nltk
 from nltk.tokenize import word_tokenize
 import os
 
-# Ensure nltk data is available
 try:
     nltk.data.find('tokenizers/punkt')
 except LookupError:
@@ -28,7 +27,6 @@ class ChunkStore:
         return [self.chunks[i] for i in top_n]
 
 def chunk_text(text, metadata, chunk_size=500, overlap=50):
-    # Simple sliding window chunking
     words = text.split()
     chunks = []
     for i in range(0, len(words), chunk_size - overlap):
